@@ -4,41 +4,58 @@
 #
 Name     : R-mvoutlier
 Version  : 2.0.9
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/mvoutlier_2.0.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvoutlier_2.0.9.tar.gz
 Summary  : Multivariate Outlier Detection Based on Robust Methods
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-GGally
-Requires: R-VIM
-Requires: R-cvTools
-Requires: R-data.table
-Requires: R-e1071
-Requires: R-fpc
-Requires: R-ggplot2
-Requires: R-mclust
-Requires: R-pls
-Requires: R-robCompositions
-Requires: R-robustbase
-Requires: R-rrcov
+Requires: R-diptest
+Requires: R-flexmix
+Requires: R-kernlab
+Requires: R-modeltools
+Requires: R-prabclus
 Requires: R-sROC
-Requires: R-sgeostat
+Requires: R-trimcluster
+Requires: R-zCompositions
 BuildRequires : R-GGally
+BuildRequires : R-RColorBrewer
+BuildRequires : R-Rcpp
 BuildRequires : R-VIM
+BuildRequires : R-abind
+BuildRequires : R-carData
 BuildRequires : R-cvTools
 BuildRequires : R-data.table
-BuildRequires : R-e1071
+BuildRequires : R-diptest
+BuildRequires : R-flexmix
 BuildRequires : R-fpc
 BuildRequires : R-ggplot2
+BuildRequires : R-gtable
+BuildRequires : R-kernlab
+BuildRequires : R-lazyeval
 BuildRequires : R-mclust
+BuildRequires : R-modeltools
+BuildRequires : R-munsell
+BuildRequires : R-mvtnorm
+BuildRequires : R-pillar
+BuildRequires : R-pkgconfig
 BuildRequires : R-pls
+BuildRequires : R-plyr
+BuildRequires : R-prabclus
+BuildRequires : R-reshape
+BuildRequires : R-rio
+BuildRequires : R-rlang
 BuildRequires : R-robCompositions
 BuildRequires : R-robustbase
 BuildRequires : R-rrcov
 BuildRequires : R-sROC
+BuildRequires : R-scales
 BuildRequires : R-sgeostat
-BuildRequires : clr-R-helpers
+BuildRequires : R-sp
+BuildRequires : R-trimcluster
+BuildRequires : R-zCompositions
+BuildRequires : R-zoo
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -51,11 +68,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521272745
+export SOURCE_DATE_EPOCH=1552936147
 
 %install
+export SOURCE_DATE_EPOCH=1552936147
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521272745
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -84,15 +101,6 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library mvoutlier
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library mvoutlier|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
-
 
 %files
 %defattr(-,root,root,-)
