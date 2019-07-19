@@ -4,57 +4,18 @@
 #
 Name     : R-mvoutlier
 Version  : 2.0.9
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/mvoutlier_2.0.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvoutlier_2.0.9.tar.gz
 Summary  : Multivariate Outlier Detection Based on Robust Methods
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-diptest
-Requires: R-flexmix
-Requires: R-kernlab
-Requires: R-modeltools
-Requires: R-prabclus
-Requires: R-sROC
-Requires: R-trimcluster
-Requires: R-zCompositions
-BuildRequires : R-GGally
-BuildRequires : R-RColorBrewer
-BuildRequires : R-Rcpp
-BuildRequires : R-VIM
-BuildRequires : R-abind
-BuildRequires : R-carData
-BuildRequires : R-cvTools
-BuildRequires : R-data.table
-BuildRequires : R-diptest
-BuildRequires : R-flexmix
-BuildRequires : R-fpc
-BuildRequires : R-ggplot2
-BuildRequires : R-gtable
-BuildRequires : R-kernlab
-BuildRequires : R-lazyeval
-BuildRequires : R-mclust
-BuildRequires : R-modeltools
-BuildRequires : R-munsell
-BuildRequires : R-mvtnorm
-BuildRequires : R-pillar
-BuildRequires : R-pkgconfig
-BuildRequires : R-pls
-BuildRequires : R-plyr
-BuildRequires : R-prabclus
-BuildRequires : R-reshape
-BuildRequires : R-rio
-BuildRequires : R-rlang
+Requires: R-robCompositions
+Requires: R-robustbase
+Requires: R-sgeostat
 BuildRequires : R-robCompositions
 BuildRequires : R-robustbase
-BuildRequires : R-rrcov
-BuildRequires : R-sROC
-BuildRequires : R-scales
 BuildRequires : R-sgeostat
-BuildRequires : R-sp
-BuildRequires : R-trimcluster
-BuildRequires : R-zCompositions
-BuildRequires : R-zoo
 BuildRequires : buildreq-R
 
 %description
@@ -67,13 +28,13 @@ No detailed description available
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552936147
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1563519229
 
 %install
-export SOURCE_DATE_EPOCH=1552936147
+export SOURCE_DATE_EPOCH=1563519229
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
