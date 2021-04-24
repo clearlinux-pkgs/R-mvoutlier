@@ -4,7 +4,7 @@
 #
 Name     : R-mvoutlier
 Version  : 2.0.9
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/mvoutlier_2.0.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvoutlier_2.0.9.tar.gz
 Summary  : Multivariate Outlier Detection Based on Robust Methods
